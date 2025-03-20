@@ -68,8 +68,79 @@
         object-fit: cover;
         border-radius: 8px;
       }
+
+
+
+
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Smooth dropdown effect */
+        .dropdown-menu {
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image hover zoom effect */
+        .img-fluid {
+            transition: transform 0.4s ease-in-out;
+        }
+        .img-fluid:hover {
+            transform: scale(1.05);
+        }
+
+        /* Section fade-in on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button hover effect */
+        .btn-primary {
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #1a1366;
+            transform: scale(1.05);
+        }
    
     </style>
+
+
+<script>
+  // Fade-in effect on scroll
+  document.addEventListener("DOMContentLoaded", function () {
+      let fadeElements = document.querySelectorAll(".fade-in");
+      function checkScroll() {
+          fadeElements.forEach((el) => {
+              let position = el.getBoundingClientRect().top;
+              if (position < window.innerHeight * 0.9) {
+                  el.classList.add("show");
+              }
+          });
+      }
+      window.addEventListener("scroll", checkScroll);
+      checkScroll();
+  });
+</script>
+
+
   </head>
  
   <body>
@@ -187,19 +258,19 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/Gallery/1.jpeg" alt="Image 1" />
+                <img class="img-fluid" src="img/Wisdom/3/WhatsApp Image 2025-03-13 at 5.49.28 PM.jpeg" alt="Image 1" />
                 <h5 class="text-center mt-2">Adventure Trip</h5>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/2.jpg" alt="Image 11" />
-                <h5 class="text-center mt-2">Champions</h5>
+                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.40 AM (2).jpeg" alt="Image 11" />
+                <h5 class="text-center mt-2">Activities</h5>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/Gallery/111.jpeg" alt="Image 111" />
+                <img class="img-fluid" src="img/Wisdom/3/WhatsApp Image 2025-03-13 at 5.51.59 PM.jpeg" alt="Image 111" />
                 <h5 class="text-center mt-2">Team</h5>
               </div>
             </div>
@@ -207,27 +278,27 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/Gallery/112.jpeg" alt="Image 112" />
+                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.42 AM (2).jpeg" alt="Image 112" />
                 <h5 class="text-center mt-2">Team Co-Ordination</h5>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/Gallery/12.jpeg" alt="Image 12" />
-                <h5 class="text-center mt-2">Sport</h5>
+                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.41 AM.jpeg" alt="Image 12" />
+                <h5 class="text-center mt-2">Toor Bus</h5>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/Gallery/13.jpeg" alt="Image 13" />
-                <h5 class="text-center mt-2">Festival Celebration</h5>
+                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.40 AM.jpeg" />
+                <h5 class="text-center mt-2">Toor</h5>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/Gallery/4.jpeg" alt="Image 21" />
+                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.41 AM (1).jpeg" alt="Image 21" />
                 <h5 class="text-center mt-2">Our Champions</h5>
  
              
@@ -235,14 +306,14 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/Gallery/71 (3).jpeg" alt="Image 22" />
+                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.39 AM (1).jpeg" alt="Image 22" />
                 <h5 class="text-center mt-2">The Achievers</h5>
  
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/Gallery/service2.jpeg" alt="Service 1" />
+                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.40 AM (1).jpeg" alt="Service 1" />
  
                 <h5 class="text-center mt-2">Victory Voyage</h5>
  
@@ -255,20 +326,20 @@
             <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/Gallery/5.jpeg" alt="Image 1" />
-                <h5 class="text-center mt-2">Adventure Trip</h5>
+                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.42 AM (1).jpeg" alt="Image 1" />
+                <h5 class="text-center mt-2">Activities</h5>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/Gallery/24.jpg" alt="Image 11" />
-                <h5 class="text-center mt-2">Girls Power</h5>
+                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.42 AM (2).jpeg" alt="Image 11" />
+                <h5 class="text-center mt-2">Girls </h5>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/new/WhatsApp Image 2025-03-07 at 2.50.01 PM (2).jpeg" alt="Image 111" />
-                <h5 class="text-center mt-2">Country </h5>
+                <img class="img-fluid" src="img/Wisdom/3/WhatsApp Image 2025-03-13 at 5.50.29 PM.jpeg" alt="Image 111" />
+                <h5 class="text-center mt-2">Boys </h5>
               </div>
             </div>
           </div>
@@ -276,20 +347,20 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/new/WhatsApp Image 2025-03-07 at 2.50.00 PM (1).jpeg" alt="Image 1" />
+                <img class="img-fluid" src="img/Wisdom/3/WhatsApp Image 2025-03-13 at 5.50.55 PM.jpeg" alt="Image 1" />
                 <h5 class="text-center mt-2">Historical Tour</h5>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/25.jpg" alt="Image 11" />
-                <h5 class="text-center mt-2">Champions</h5>
+                <img class="img-fluid" src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.24 PM.jpeg" alt="Image 11" />
+                <h5 class="text-center mt-2">Coordination</h5>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/new/9.jpeg" alt="Image 111" />
-                <h5 class="text-center mt-2">Festival Celebration</h5>
+                <img class="img-fluid" src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.25 PM (1).jpeg" alt="Image 111" />
+                <h5 class="text-center mt-2"> Festive</h5>
               </div>
             </div>
           </div>
@@ -298,20 +369,20 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/img/Gallery/112.jpeg" alt="Image 1" />
-                <h5 class="text-center mt-2">Group Discussion</h5>
+                <img class="img-fluid" src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.25 PM.jpeg" alt="Image 1" />
+                <h5 class="text-center mt-2">Annual Day</h5>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
                 <img
-                 class="img-fluid" src="img/img/Gallery/5.jpeg" alt="Image 11" />
-                <h5 class="text-center mt-2">Games</h5>
+                 class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.43 AM (2).jpeg" alt="Image 11" />
+                <h5 class="text-center mt-2">Teacher Student Bond</h5>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
               <div class="gallery-item">
-                <img class="img-fluid" src="img/new/2.jpeg" alt="Image 111" />
+                <img class="img-fluid" src="img/Wisdom/1/WhatsApp Image 2025-03-19 at 3.15.22 PM.jpeg" alt="Image 111" />
                 <h5 class="text-center mt-2">Team</h5>
               </div>
             </div>
@@ -382,22 +453,22 @@
                 Quick links
               </h5>
               <div class="d-flex flex-column justify-content-start">
-                <a class="text-white mb-2" href="#"
+                <a class="text-white mb-2" href="index.html"
                   ><i class="fa fa-angle-right mr-2"></i>Home</a
                 >
-                <a class="text-white mb-2" href="#"
+                <a class="text-white mb-2" href="about.html"
                   ><i class="fa fa-angle-right mr-2"></i>About Us</a
                 >
-                <a class="text-white mb-2" href="#"
+                <a class="text-white mb-2" href="gallery.html"
                   ><i class="fa fa-angle-right mr-2"></i>Gallery
                 </a>
-                <a class="text-white mb-2" href="#"
+                <a class="text-white mb-2" href="files/admission_form.pdf"
                   ><i class="fa fa-angle-right mr-2"></i>Admission Form</a
                 >
                 <!-- <a class="text-white mb-2" href="#"
                   ><i class="fa fa-angle-right mr-2"></i>Testimonial
                 </a> -->
-                <a class="text-white" href="#"
+                <a class="text-white" href="contact.html"
                   ><i class="fa fa-angle-right mr-2"></i>Contact</a
                 >
               </div>

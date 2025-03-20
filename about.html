@@ -57,7 +57,79 @@
           height: 110px;
         }
       }
+
+
+
+
+
+         /* Fade-in animation */
+         @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Smooth dropdown effect */
+        .dropdown-menu {
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image hover zoom effect */
+        .img-fluid {
+            transition: transform 0.4s ease-in-out;
+        }
+        .img-fluid:hover {
+            transform: scale(1.05);
+        }
+
+        /* Section fade-in on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button hover effect */
+        .btn-primary {
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #1a1366;
+            transform: scale(1.05);
+        }
+      
     </style>
+
+
+<script>
+  // Fade-in effect on scroll
+  document.addEventListener("DOMContentLoaded", function () {
+      let fadeElements = document.querySelectorAll(".fade-in");
+      function checkScroll() {
+          fadeElements.forEach((el) => {
+              let position = el.getBoundingClientRect().top;
+              if (position < window.innerHeight * 0.9) {
+                  el.classList.add("show");
+              }
+          });
+      }
+      window.addEventListener("scroll", checkScroll);
+      checkScroll();
+  });
+</script>
+
+
   </head>
 
   <body>
@@ -170,7 +242,7 @@
           <div class="col-lg-5">
             <img
               class="img-fluid rounded mb-4 mb-lg-0"
-              src="img/img/Gallery/4.jpeg"
+              src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.40 AM.jpeg"
               alt=""
             />
           </div>
@@ -203,6 +275,8 @@
       </div>
     </div>
     <!-- About End -->
+
+
 
     <!-- Category Start -->
     <div class="container-fluid py-5">
@@ -536,22 +610,22 @@
                 Quick links
               </h5>
               <div class="d-flex flex-column justify-content-start">
-                <a class="text-white mb-2" href="#"
+                <a class="text-white mb-2" href="index.html"
                   ><i class="fa fa-angle-right mr-2"></i>Home</a
                 >
-                <a class="text-white mb-2" href="#"
+                <a class="text-white mb-2" href="about.html"
                   ><i class="fa fa-angle-right mr-2"></i>About Us</a
                 >
-                <a class="text-white mb-2" href="#"
+                <a class="text-white mb-2" href="gallery.html"
                   ><i class="fa fa-angle-right mr-2"></i>Gallery
                 </a>
-                <a class="text-white mb-2" href="#"
+                <a class="text-white mb-2" href="files/admission_form.pdf"
                   ><i class="fa fa-angle-right mr-2"></i>Admission Form</a
                 >
                 <!-- <a class="text-white mb-2" href="#"
                   ><i class="fa fa-angle-right mr-2"></i>Testimonial
                 </a> -->
-                <a class="text-white" href="#"
+                <a class="text-white" href="contact.html"
                   ><i class="fa fa-angle-right mr-2"></i>Contact</a
                 >
               </div>
