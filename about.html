@@ -111,23 +111,6 @@
         transform: scale(1.05);
       }
     </style>
-
-    <script>
-      // Fade-in effect on scroll
-      document.addEventListener("DOMContentLoaded", function () {
-        let fadeElements = document.querySelectorAll(".fade-in");
-        function checkScroll() {
-          fadeElements.forEach((el) => {
-            let position = el.getBoundingClientRect().top;
-            if (position < window.innerHeight * 0.9) {
-              el.classList.add("show");
-            }
-          });
-        }
-        window.addEventListener("scroll", checkScroll);
-        checkScroll();
-      });
-    </script>
   </head>
 
   <body>
@@ -201,9 +184,14 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Admission From
+                    Admission
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="feesDropdown">
+                    <li>
+                      <a class="dropdown-item" href="admission_process.html"
+                        >Admission Process</a
+                      >
+                    </li>
                     <li>
                       <a
                         class="dropdown-item"
@@ -211,6 +199,7 @@
                         >Fill Form</a
                       >
                     </li>
+
                     <li>
                       <a class="dropdown-item" href="files/admission_form.pdf"
                         >Download Form</a
@@ -615,38 +604,9 @@
                 <a class="text-white mb-2" href="gallery.html"
                   ><i class="fa fa-angle-right mr-2"></i>Gallery
                 </a>
-                <div class="nav-item dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    id="feesDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Admission
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="feesDropdown">
-                    <li>
-                      <a class="dropdown-item" href="admission_process.html"
-                        >Admission Process</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="dropdown-item"
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSd1aKc3feRabX9OZJMWN1GRORBULJ0KzUTKJg3AZNA7NniJGw/viewform?usp=dialog"
-                        >Fill Form</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="files/admission_form.pdf"
-                        >Download Form</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-
+                <a class="text-white mb-2" href="#"
+                  ><i class="fa fa-angle-right mr-2"></i>Admission Form</a
+                >
                 <a class="text-white" href="contact.html"
                   ><i class="fa fa-angle-right mr-2"></i>Contact</a
                 >
@@ -749,6 +709,21 @@
         .addEventListener("input", function (e) {
           this.value = this.value.replace(/\D/, ""); // Removes non-numeric characters
         });
+
+      // Fade-in effect on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        let fadeElements = document.querySelectorAll(".fade-in");
+        function checkScroll() {
+          fadeElements.forEach((el) => {
+            let position = el.getBoundingClientRect().top;
+            if (position < window.innerHeight * 0.9) {
+              el.classList.add("show");
+            }
+          });
+        }
+        window.addEventListener("scroll", checkScroll);
+        checkScroll();
+      });
     </script>
   </body>
 </html>
