@@ -62,84 +62,148 @@
  
  
  
-      .gallery-item img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
-
-
-
-
-
-        /* Fade-in animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+      body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+            justify-content: flex-start;
+            padding-top: 20px;
         }
 
-        /* Smooth dropdown effect */
-        .dropdown-menu {
+        .container {
+            display: flex;
+            gap: 21px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .category {
+            background-color: #e5a662;
+            color: rgb(6, 5, 5);
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .content {
             display: none;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-        }
-        .nav-item.dropdown:hover .dropdown-menu {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Image hover zoom effect */
-        .img-fluid {
-            transition: transform 0.4s ease-in-out;
-        }
-        .img-fluid:hover {
-            transform: scale(1.05);
+            margin-top: 20px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 900px;
         }
 
-        /* Section fade-in on scroll */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in.show {
-            opacity: 1;
-            transform: translateY(0);
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            justify-content: center;
         }
 
-        /* Button hover effect */
-        .btn-primary {
-            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        .image-gallery img {
+            width: 100%;
+            height: 250px; /* Ensures uniform height */
+            object-fit: cover; /* Ensures proper cropping */
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .btn-primary:hover {
-            background-color: #1a1366;
-            transform: scale(1.05);
-        }
-   
+
+
+
+        #meals .image-gallery img {
+    width: auto;  /* Allows the image to keep its natural width */
+    max-width: 100%;  /* Ensures it doesn’t overflow the container */
+    height: auto;  /* Maintains the aspect ratio */
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+.container {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.category:hover {
+    background-color: #bc9dee;
+    transform: scale(1.05);
+}
+
+.active-category {
+    background-color: #0056b3; /* Active category color */
+}
+
+/* Default active section */
+.content {
+    display: none;
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 900px;
+}
+
+#sports {
+    display: block; /* Sports section visible by default */
+}
+
+
+
+/* Soft hover effect for all images */
+.image-gallery img {
+    width: 100%;
+    height: 250px; /* Ensures uniform height */
+    object-fit: cover; /* Ensures proper cropping */
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, filter 0.4s ease-out;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05); /* Soft zoom effect */
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2); /* Softer glow */
+    filter: brightness(1.1); /* Slight brightness increase */
+}
+
     </style>
 
+<SCRIPT>function showContent(id) {
+  let contents = document.querySelectorAll('.content');
+  let categories = document.querySelectorAll('.category');
 
-<script>
-  // Fade-in effect on scroll
-  document.addEventListener("DOMContentLoaded", function () {
-      let fadeElements = document.querySelectorAll(".fade-in");
-      function checkScroll() {
-          fadeElements.forEach((el) => {
-              let position = el.getBoundingClientRect().top;
-              if (position < window.innerHeight * 0.9) {
-                  el.classList.add("show");
-              }
-          });
-      }
-      window.addEventListener("scroll", checkScroll);
-      checkScroll();
+  contents.forEach(content => {
+      content.style.display = (content.id === id) ? "block" : "none";
   });
-</script>
 
+  categories.forEach(category => {
+      category.classList.remove('active-category');
+  });
+
+  document.querySelector(`.category[onclick="showContent('${id}')"]`).classList.add('active-category');
+}
+
+// Set "Sports" as the default active category on page load
+document.addEventListener("DOMContentLoaded", function () {
+  showContent('sports');
+});
+</SCRIPT>
 
   </head>
  
@@ -214,9 +278,14 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Admission From
+                    Admission 
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="feesDropdown">
+                    <li>
+                      <a class="dropdown-item" href="admission_process.html"
+                        >Admission Process</a
+                      >
+                    </li>
                     <li>
                       <a
                         class="dropdown-item"
@@ -247,159 +316,92 @@
     </div>
     <!-- Navbar End -->
  
-    <!-- Programs Start -->
-    <div class="container-fluid py-5">
-      <div class="container py-5">
-        <div class="text-center mb-5">
-          <h2>Recent Activities</h2>
-        </div>
-        <div class="row">
-          <!-- Responsive Image Gallery with 3 images per row -->
-          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/3/WhatsApp Image 2025-03-13 at 5.49.28 PM.jpeg" alt="Image 1" />
-                <h5 class="text-center mt-2">Adventure Trip</h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.40 AM (2).jpeg" alt="Image 11" />
-                <h5 class="text-center mt-2">Activities</h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/3/WhatsApp Image 2025-03-13 at 5.51.59 PM.jpeg" alt="Image 111" />
-                <h5 class="text-center mt-2">Team</h5>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.42 AM (2).jpeg" alt="Image 112" />
-                <h5 class="text-center mt-2">Team Co-Ordination</h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.41 AM.jpeg" alt="Image 12" />
-                <h5 class="text-center mt-2">Toor Bus</h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.40 AM.jpeg" />
-                <h5 class="text-center mt-2">Toor</h5>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.41 AM (1).jpeg" alt="Image 21" />
-                <h5 class="text-center mt-2">Our Champions</h5>
- 
-             
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.39 AM (1).jpeg" alt="Image 22" />
-                <h5 class="text-center mt-2">The Achievers</h5>
- 
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.40 AM (1).jpeg" alt="Service 1" />
- 
-                <h5 class="text-center mt-2">Victory Voyage</h5>
- 
-              </div>
-            </div>
- 
-          </div>
-       
-           
-            <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.42 AM (1).jpeg" alt="Image 1" />
-                <h5 class="text-center mt-2">Activities</h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.42 AM (2).jpeg" alt="Image 11" />
-                <h5 class="text-center mt-2">Girls </h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/3/WhatsApp Image 2025-03-13 at 5.50.29 PM.jpeg" alt="Image 111" />
-                <h5 class="text-center mt-2">Boys </h5>
-              </div>
-            </div>
-          </div>
- 
-          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/3/WhatsApp Image 2025-03-13 at 5.50.55 PM.jpeg" alt="Image 1" />
-                <h5 class="text-center mt-2">Historical Tour</h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.24 PM.jpeg" alt="Image 11" />
-                <h5 class="text-center mt-2">Coordination</h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.25 PM (1).jpeg" alt="Image 111" />
-                <h5 class="text-center mt-2"> Festive</h5>
-              </div>
-            </div>
-          </div>
- 
- 
-          <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.25 PM.jpeg" alt="Image 1" />
-                <h5 class="text-center mt-2">Annual Day</h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img
-                 class="img-fluid" src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.43 AM (2).jpeg" alt="Image 11" />
-                <h5 class="text-center mt-2">Teacher Student Bond</h5>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-              <div class="gallery-item">
-                <img class="img-fluid" src="img/Wisdom/1/WhatsApp Image 2025-03-19 at 3.15.22 PM.jpeg" alt="Image 111" />
-                <h5 class="text-center mt-2">Team</h5>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
+
+
+
+
+ <!-- Categories Always Visible -->
+ <div class="container">
+
+
+  <div class="category" onclick="showContent('sports')">Sports</div>
+  <div class="category" onclick="showContent('toor')">Toor</div>
+  <div class="category" onclick="showContent('fixture')">School Fixture & Schedule</div>
+  <div class="category" onclick="showContent('entertainment')">Entertainments</div>
+  <div class="category" onclick="showContent('meals')">Meals</div>
+</div>
+
+
+<div id="sports" class="content">
+  <div class="image-gallery">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.43 AM (1).jpeg" alt="Sports Event 1">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.41 AM (2).jpeg" alt="Sports Event 2">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.41 AM (3).jpeg" alt="Sports Event 3">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.39 AM.jpeg" alt="Sports Event 4">
+  
+  </div>
+</div>
+
+
+<!-- Image Sections -->
+<div id="toor" class="content">
+  <div class="image-gallery">
+      <img src="img/Wisdom/3/WhatsApp Image 2025-03-13 at 5.49.28 PM.jpeg" alt="Fixture 1">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.40 AM.jpeg" alt="Fixture 2">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.41 AM (1).jpeg" alt="Fixture 3">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.40 AM (1).jpeg" alt="Fixture 4">
+      
+  </div>
+</div>
+
+<div id="fixture" class="content">
+  <div class="image-gallery">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.42 AM (1).jpeg" alt="Fixture 1">
+      <img src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.24 PM.jpeg" alt="Fixture 2">
+      <img src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.26 PM.jpeg" alt="Fixture 1">
+      <img src="img/Wisdom/1/WhatsApp Image 2025-03-19 at 3.15.22 PM (2).jpeg" alt="Fixture 2">
+      
+      
+      <img src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.27 PM.jpeg" alt="Fixture 1">
+
+      <img src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.30 PM (1).jpeg" alt="Fixture 1">
+      <img src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.29 PM (2).jpeg" alt="Fixture 1">
+
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.41 AM.jpeg" alt="Fixture 1">
       </div>
-    </div>
+</div>
+
+<div id="entertainment" class="content">
+  <div class="image-gallery">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.40 AM (2).jpeg" alt="Birthday Celebrations">
+      <img src="img/Wisdom/3/WhatsApp Image 2025-03-13 at 5.50.29 PM.jpeg" alt="Movie Nights">
+      <img src="img/Wisdom/2/WhatsApp Image 2025-03-19 at 3.15.25 PM.jpeg" alt="Variety Programmes">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.41 AM (3).jpeg" alt="Bazaar Outings">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.39 AM (1).jpeg" alt="School Educational Picnics">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.40 AM (1).jpeg" alt="School Educational Picnics">
+  </div>
+</div>
+
+<div id="meals" class="content">
+  <div class="image-gallery">
+      <img src="img/Wisdom/4/WhatsApp Image 2025-03-14 at 11.43.42 AM (2).jpeg" alt="Meal 1">
+  </div>
+</div>
+
+<script>
+  function showContent(id) {
+      let contents = document.querySelectorAll('.content');
+      contents.forEach(content => {
+          content.style.display = (content.id === id) ? "block" : "none";
+      });
+  }
+</script>
+
+
+
+
    
-    <style>
-      .gallery-item img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
-    </style>
+
    
     <!-- Programs End -->
  

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Contact | Wisdom Highschool & junior College</title>
+    <title>About | Wisdom Highschool & junior College</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
     <!-- Favicon -->
@@ -33,6 +33,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+
     <style>
       @media (max-width: 800px) {
         .mob-logo-span {
@@ -55,6 +56,116 @@
       @media (max-width: 600px) {
         .logo-img {
           height: 110px;
+        }
+      }
+
+      .list-unstyled li {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+      .text-pri {
+        color: #2a166f !important;
+        font-weight: bold;
+      }
+      .container {
+        max-width: 1100px;
+        margin: auto;
+      }
+
+      /* General Container Styling */
+      .container {
+        max-width: 80%;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); */
+      }
+
+      /* Accordion Styling */
+      .accordion {
+        border: none;
+      }
+
+      .accordion-item {
+        border-radius: 8px;
+        overflow: hidden;
+        border: none;
+        margin-bottom: 15px;
+        /* box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); */
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .accordion-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Accordion Button Styling */
+      .accordion-button {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        background-color: #f8f9fa;
+        padding: 12px;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        border: none;
+        width: 100%;
+        text-align: start;
+      }
+
+      /* Active Accordion Button */
+      .accordion-button:not(.collapsed) {
+        background-color: #577595;
+        color: white;
+        box-shadow: none;
+        width: 100%;
+        text-align: start;
+      }
+
+      /* Accordion Body Styling */
+      .accordion-body {
+        background: #fff;
+        padding: 15px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #444;
+      }
+
+      /* Lists inside Accordion */
+      .accordion-body ul {
+        padding-left: 20px;
+      }
+
+      .accordion-body ul li {
+        margin-bottom: 8px;
+      }
+
+      /* Header Title Styling */
+      h3 {
+        font-size: 22px;
+        color: #0056b3;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      /* Animation */
+      .animate_animated {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease-in-out forwards;
+      }
+
+      /* Keyframes for Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
     </style>
@@ -118,6 +229,7 @@
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="gallery.html" class="nav-item nav-link">Gallery</a>
                 <a href="fees.html" class="nav-item nav-link">Fees structure</a>
+
                 <!-- <a href="#Testimonial" class="nav-item nav-link">Testimonial</a> -->
 
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
@@ -153,7 +265,6 @@
                   </ul>
                 </div>
               </div>
-              </div>
               <a
                 style="padding: 0.8rem !important"
                 class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block"
@@ -168,28 +279,172 @@
     </div>
     <!-- Navbar End -->
 
-    <!-- Contact Start -->
-    <div class="container-fluid py-5">
-      <div class="container py-5">
-        <div class="text-center mb-5">
-          <h5
-            class="text-primary text-uppercase mb-3"
-            style="letter-spacing: 5px"
+    <div class="container">
+      <div class="accordion" id="admissionAccordion">
+        <div class="accordion-item animate_animated animate_fadeInUp">
+          <h3>
+            Wisdom High School & Jr. College, Panchgani – ESTD. 2005 <br />
+            A State Board Affiliated School! New Admission Procedure –
+            Informative Document
+          </h3>
+          <br />
+          <p>
+            We welcome you to this 20-year-old Educational Institution. This
+            document is drafted in a manner to make new admission-seeking
+            parents understand the entire admission process. Details for your
+            understanding:
+          </p>
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+            >
+              Appointment, Entrance Exam & Campus Tour
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show justify-content"
           >
-            Contact
-          </h5>
-          <h1>Contact For Any Query</h1>
+            <div class="accordion-body">
+              <ul>
+                <li>
+                  New admissions are granted for Grades 1 to XII (boys / Girls)
+                  subject to the availability of the seats in each class.
+                </li>
+                <li>
+                  Grade I & II will be given direct admission based on their
+                  previous class passing result. Grade III students will have
+                  English and Mathematics subjects for the entrance exam whereas
+                  from Grade IV to Grade IX will have English, Marathi, Hindi &
+                  Mathematics subjects.
+                </li>
+                <li>
+                  The evaluation questions will be such that any student who is
+                  studying either of the following streams will be able to
+                  answer them without much difficulty. (Maharashtra State
+                  Board). The approximate duration of this test is 1hour.
+                </li>
+                <li>
+                  You may seek an appointment by contacting the Admission
+                  department. Appointments are available from Monday to Saturday
+                  between 9:00 am to 4:00 pm.
+                </li>
+                <li>
+                  5. During your visit you and your child will be taken for a
+                  campus tour. To have your child see the campus where he/she is
+                  going to spend some amazing years of school life.
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="contact-form bg-secondary rounded p-5">
-              <div id="success"></div>
-              <script src="https://sheetdb.io/s/f/iab100cl38hi6.js"></script>            </div>
+
+        <div
+          class="accordion-item animate_animated animatefadeInUp animate_delay-1s"
+        >
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+            >
+              Admission Form, School Prospectus & Fees
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <ul>
+                <li>
+                  The School Prospectus is available at the school office and
+                  can be purchased for Rs. 200 (Two Hundred Only). The original
+                  admission form from the prospectus shall be filled in and
+                  submitted before the entrance exam.
+                </li>
+                <li>
+                  The entrance exam fees to be paid before the exam is Rs. 500/-
+                  (Five Hundred Only)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="accordion-item animate_animated animatefadeInUp animate_delay-2s"
+        >
+          <h2 class="accordion-header" id="headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+            >
+              Required Documents (Before & After Admission Confirmation)
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <strong>Documents to submit with the Admission Form:</strong>
+              <ul>
+                <li>
+                  Past 1 year’s academic report cards, Photocopy (Not applicable
+                  for Grades 1 and 2 students)
+                </li>
+                <li>Student’s Aadhar Card – Photocopy</li>
+                <li>Student’s Birth Certificate – Photocopy</li>
+                <li>Student’s recent Passport size photograph – 1nos</li>
+              </ul>
+              <strong
+                >Entrance Exam Result, Admission Confirmation Status & Fees, and
+                School Uniform Measurement:</strong
+              >
+              <ul>
+                <li>
+                  Parents visiting between Monday to Saturday will be informed
+                  of the student’s entrance exam result on the same day. (This
+                  is subject to the teaching staff’s availability)
+                </li>
+                <li>
+                  Upon the completion of the Entrance Exam, papers are checked
+                  by the teachers and with a remark of clear admission or that
+                  the student will be put into remedial to improve upon his weak
+                  subject/subjects, and by the principal’s approval, the
+                  admission will be considered as confirmed.
+                </li>
+                <li>
+                  The parents and the child will then meet the principal for a
+                  formal interaction.
+                </li>
+                <li>
+                  4. For the admissions that are confirmed, Parents are to pay a
+                  Non-Refundable fee of Rs. 10,000/- (Ten Thousand Only) for
+                  confirming the admission of your child. (The amount will be
+                  adjusted in the first instalment of fees)
+                </li>
+              </ul>
+
+              <strong>Documents to submit after Admission Confirmation:</strong>
+              <ul>
+                <li>Parents' Aadhar Card – Photocopy</li>
+                <li>Parents' Passport Size Photo – 2 each</li>
+                <li>Student’s Passport Size Photo – 4nos</li>
+                <li>Caste Certificate (If Any)</li>
+                <li>Family Photograph – 1</li>
+                <li>Medical Report (Current Date)</li>
+                <li>
+                  Previous year’s School Leaving Certificate – Original (Before
+                  the academic year starts)
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Contact End -->
 
     <!-- Footer Start -->
     <div
@@ -241,22 +496,22 @@
                 Quick links
               </h5>
               <div class="d-flex flex-column justify-content-start">
-                <a class="text-white mb-2" href="index.html"
+                <a class="text-white mb-2" href="#"
                   ><i class="fa fa-angle-right mr-2"></i>Home</a
                 >
-                <a class="text-white mb-2" href="about.html"
+                <a class="text-white mb-2" href="#"
                   ><i class="fa fa-angle-right mr-2"></i>About Us</a
                 >
-                <a class="text-white mb-2" href="gallery.html"
+                <a class="text-white mb-2" href="#"
                   ><i class="fa fa-angle-right mr-2"></i>Gallery
                 </a>
-                <a class="text-white mb-2" href="files/admission_form.pdf"
-                ><i class="fa fa-angle-right mr-2"></i>Admission Form</a
-              >
+                <a class="text-white mb-2" href="#"
+                  ><i class="fa fa-angle-right mr-2"></i>Admission Form</a
+                >
                 <!-- <a class="text-white mb-2" href="#"
                   ><i class="fa fa-angle-right mr-2"></i>Testimonial
                 </a> -->
-                <a class="text-white" href="contact.html"
+                <a class="text-white" href="#"
                   ><i class="fa fa-angle-right mr-2"></i>Contact</a
                 >
               </div>
@@ -311,20 +566,18 @@
       ><i class="fa fa-angle-double-up"></i
     ></a>
 
-   <!-- whatapp icon start -->
-   <a
-   href="https://wa.me/919922111346?text=Hello%20I%20want%20to%20know%20more%20about%20your%20school"
-   class="whatsapp"
-   style="
-     color: green !important;
-     font-size: 3.3rem;
-     z-index: 1000 !important;
-   "
-   target="_blank"
- >
-   <i class="fa-brands fa-square-whatsapp"></i>
- </a>
- <!-- whatapp icon end -->
+    <a
+      href="https://wa.me/919922111346?text=Hello%20I%20want%20to%20know%20more%20about%20your%20school"
+      class="whatsapp"
+      style="
+        color: green !important;
+        font-size: 3.3rem;
+        z-index: 1000 !important;
+      "
+      target="_blank"
+    >
+      <i class="fa-brands fa-square-whatsapp"></i>
+    </a>
 
     <!-- font awesome cdn -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -347,7 +600,7 @@
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
-    <!-- <script src="mail/contact.js"></script> -->
+    <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>

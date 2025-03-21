@@ -58,78 +58,76 @@
         }
       }
 
+      /* Fade-in animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
+      /* Smooth dropdown effect */
+      .dropdown-menu {
+        display: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      }
+      .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+      }
 
+      /* Image hover zoom effect */
+      .img-fluid {
+        transition: transform 0.4s ease-in-out;
+      }
+      .img-fluid:hover {
+        transform: scale(1.05);
+      }
 
+      /* Section fade-in on scroll */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-in.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-         /* Fade-in animation */
-         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Smooth dropdown effect */
-        .dropdown-menu {
-            display: none;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-        }
-        .nav-item.dropdown:hover .dropdown-menu {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Image hover zoom effect */
-        .img-fluid {
-            transition: transform 0.4s ease-in-out;
-        }
-        .img-fluid:hover {
-            transform: scale(1.05);
-        }
-
-        /* Section fade-in on scroll */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Button hover effect */
-        .btn-primary {
-            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-        }
-        .btn-primary:hover {
-            background-color: #1a1366;
-            transform: scale(1.05);
-        }
-      
+      /* Button hover effect */
+      .btn-primary {
+        transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+      }
+      .btn-primary:hover {
+        background-color: #1a1366;
+        transform: scale(1.05);
+      }
     </style>
 
-
-<script>
-  // Fade-in effect on scroll
-  document.addEventListener("DOMContentLoaded", function () {
-      let fadeElements = document.querySelectorAll(".fade-in");
-      function checkScroll() {
+    <script>
+      // Fade-in effect on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        let fadeElements = document.querySelectorAll(".fade-in");
+        function checkScroll() {
           fadeElements.forEach((el) => {
-              let position = el.getBoundingClientRect().top;
-              if (position < window.innerHeight * 0.9) {
-                  el.classList.add("show");
-              }
+            let position = el.getBoundingClientRect().top;
+            if (position < window.innerHeight * 0.9) {
+              el.classList.add("show");
+            }
           });
-      }
-      window.addEventListener("scroll", checkScroll);
-      checkScroll();
-  });
-</script>
-
-
+        }
+        window.addEventListener("scroll", checkScroll);
+        checkScroll();
+      });
+    </script>
   </head>
 
   <body>
@@ -275,8 +273,6 @@
       </div>
     </div>
     <!-- About End -->
-
-
 
     <!-- Category Start -->
     <div class="container-fluid py-5">
@@ -619,12 +615,38 @@
                 <a class="text-white mb-2" href="gallery.html"
                   ><i class="fa fa-angle-right mr-2"></i>Gallery
                 </a>
-                <a class="text-white mb-2" href="files/admission_form.pdf"
-                  ><i class="fa fa-angle-right mr-2"></i>Admission Form</a
-                >
-                <!-- <a class="text-white mb-2" href="#"
-                  ><i class="fa fa-angle-right mr-2"></i>Testimonial
-                </a> -->
+                <div class="nav-item dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    id="feesDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Admission
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="feesDropdown">
+                    <li>
+                      <a class="dropdown-item" href="admission_process.html"
+                        >Admission Process</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSd1aKc3feRabX9OZJMWN1GRORBULJ0KzUTKJg3AZNA7NniJGw/viewform?usp=dialog"
+                        >Fill Form</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="files/admission_form.pdf"
+                        >Download Form</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
                 <a class="text-white" href="contact.html"
                   ><i class="fa fa-angle-right mr-2"></i>Contact</a
                 >
